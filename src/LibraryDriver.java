@@ -1,3 +1,6 @@
+/*Authot - Murtaza Nipplewala
+  Date - 3rd December, 2020*/
+
 import java.util.Scanner;
 
 public class LibraryDriver {
@@ -12,11 +15,11 @@ public class LibraryDriver {
     public void addBook(Scanner in)
     {
         System.out.println("Enter Books's ISBN: ");
-        int isbn = in.nextInt();
+        int isbn = Integer.parseInt(in.nextLine());
         System.out.println("Enter Book's Title: ");
-        String title = in.next();
+        String title = in.nextLine();
         System.out.println("Enter Book's Author Name: ");
-        String author = in.next();
+        String author = in.nextLine();
         b = new Book (isbn, title, author);
         library.addBook(b);
     }
@@ -41,6 +44,10 @@ public class LibraryDriver {
             System.out.println("Sorry, Book is not available");
     }
 
+    /**
+     * Method to rent book from library to student
+     * @param in - the Scanner to read from.
+     */
     public void borrowBook(Scanner in)
     {
         System.out.println("Enter the ISBN of Book you want to borrow: ");
@@ -51,14 +58,17 @@ public class LibraryDriver {
         }
     }
 
+    /**
+     * Method to collect book from student back in library
+     * @param in - the Scanner to read from.
+     */
     public void returnBorrowedBook(Scanner in)
     {
         System.out.println("Enter the ISBN of Book you want to return: ");
-        int isbn = in.nextInt();
+        int isbn = Integer.parseInt(in.nextLine());
         if(borrowed.findBook(isbn) == true)
         {
             borrowed.returnBook(isbn);
-            //System.out.println("Student is on the Class Roster");
         }
     }
 
@@ -109,7 +119,7 @@ public class LibraryDriver {
             }
             done = choice.equals("Q") || choice.equals("q");
         }
-        System.out.println("Good bye.Have a nice day!");
+        System.out.println("Good bye. Please visit us again");
         in.close();
     }
 }

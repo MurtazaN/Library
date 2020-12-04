@@ -1,5 +1,7 @@
+/*Authot - Murtaza Nipplewala
+  Date - 3rd December, 2020*/
 
-public class Book {
+public class Book implements Comparable<Book>{
     private int isbn;
     private String title;
     private String author;
@@ -52,6 +54,20 @@ public class Book {
         this.author = author;
     }
 
+    @Override
+    public int compareTo(Book b)
+    {
+        int compareVal = 0;
+        if(isbn < b.getIsbn())
+        {
+            compareVal = -1;
+        }
+        else if (isbn > b.getIsbn())
+        {
+            compareVal = 1;
+        }
+        return compareVal;
+    }
     /**
      * Generates a String representing the Book object
      * @return returns the String representing the Book

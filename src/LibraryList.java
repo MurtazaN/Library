@@ -1,3 +1,6 @@
+/*Authot - Murtaza Nipplewala
+  Date - 3rd December, 2020*/
+
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -19,8 +22,8 @@ public class LibraryList {
     }
 
     /**
-     *
-     * @param isbn
+     * Method to loan book from library to student
+     * @param isbn - isbn of book that is being loaned
      */
     public void loanBook(int isbn)
     {
@@ -30,7 +33,7 @@ public class LibraryList {
             {
                 bList.addBook(libraryList.get(i));
                 libraryList.remove(i);
-                System.out.println("Request has been processed. Collect");
+                System.out.println("Request has been processed. Collect the book from front desk.");
             }
         }
     }
@@ -59,13 +62,17 @@ public class LibraryList {
      Prints all Books in Library
      */
     public void printBook() {
-        //Collections.sort(roster);
-        System.out.println("==================================");
-        System.out.println("All Books in Library are: ");
-        System.out.println("==================================");
-        for(int i = 0; i < libraryList.size();i++)
+        if(!libraryList.isEmpty())
         {
-            System.out.println(libraryList.get(i));
+            Collections.sort(libraryList);
+            System.out.println("==================================");
+            System.out.println("All Books in Library are: ");
+            System.out.println("==================================");
+            for (int i = 0; i < libraryList.size(); i++) {
+                System.out.println(libraryList.get(i));
+            }
         }
+        else
+            System.out.println("\nSorry, Library is currently empty.");
     }
 }

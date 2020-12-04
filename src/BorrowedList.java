@@ -1,3 +1,6 @@
+/*Authot - Murtaza Nipplewala
+  Date - 3rd December, 2020*/
+
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -26,7 +29,7 @@ public class BorrowedList {
             {
                 lib.addBook(borrowedList.get(i));
                 borrowedList.remove(i);
-                System.out.println("Request has been processed.");
+                System.out.println("Request has been processed. Deposit the book at front desk.");
             }
         }
     }
@@ -55,13 +58,18 @@ public class BorrowedList {
      Prints all Books Borrowed by Students
      */
     public void printBook() {
-        //Collections.sort(roster);
-        System.out.println("==================================");
-        System.out.println("All Books Borrowed by Students are: ");
-        System.out.println("==================================");
-        for(int i = 0; i < borrowedList.size();i++)
+        if(!borrowedList.isEmpty())
         {
-            System.out.println(borrowedList.get(i));
+            Collections.sort(borrowedList);
+            System.out.println("==================================");
+            System.out.println("All Books Borrowed by Students are: ");
+            System.out.println("==================================");
+            for(int i = 0; i < borrowedList.size();i++)
+            {
+                System.out.println(borrowedList.get(i));
+            }
         }
+        else
+            System.out.println("No Books have been loaned to the students.\n");
     }
 }
