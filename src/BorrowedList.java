@@ -21,6 +21,10 @@ public class BorrowedList {
         borrowedList.add(b);
     }
 
+    /**
+     * Method to return book from student to library
+     * @param isbn - isbn of book that is being returned
+     */
     public void returnBook(int isbn)
     {
         for(int i = 0; i < borrowedList.size() ;i++)
@@ -37,6 +41,7 @@ public class BorrowedList {
     /**
      Finds a student in the course roster
      @param isbn - the isbn of book being searched
+     @return value - true or false based on if book was found in LibraryList
      */
     public boolean findBook(int isbn)
     {

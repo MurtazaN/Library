@@ -18,7 +18,13 @@ public class LibraryList {
      @param b - the book to be added
      */
     public void addBook(Book b) {
-        libraryList.add(b);
+        if(findBook(b.getIsbn()) == true)
+        {
+            System.out.println("ISBN no. is already registered to a book in Library.");
+            System.out.println("Please check the ISBN and try again.");
+        }
+        else
+            libraryList.add(b);
     }
 
     /**
@@ -41,6 +47,7 @@ public class LibraryList {
     /**
      Finds a student in the course roster
      @param isbn - the isbn of book being searched
+     @return value - true or false based on if book was found in LibraryList
      */
     public boolean findBook(int isbn)
     {
